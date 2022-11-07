@@ -1,14 +1,33 @@
+#base on Java with Eclipse
+* .class
+ 
+# Eclipse file
+.settings /
+#.project
+.classpath
+bin
+#Eclipse file end
+
+# android auto generate
+gen/
+build/
+release/
+#android auto generate end
+
+# gradle
+.gradle/
+local.properties
+#gradle end
+
+# idea
+.idea/
+.idea
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+#idea end
+
+# vscode
+.vscode
+
+_gsdata_/
+
+app/robust/
