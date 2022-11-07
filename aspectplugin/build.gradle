@@ -1,0 +1,43 @@
+plugins {
+    // 使用的是groovy
+    id 'groovy'
+}
+
+dependencies {
+    implementation gradleApi()//gradle sdk
+    implementation localGroovy()//groovy sdk
+//    implementation "com.android.tools.build:gradle-api:3.6.3"
+//    implementation "com.android.tools.build:gradle:3.6.3"
+    implementation 'org.aspectj:aspectjtools:1.8.14'
+//    implementation "org.aspectj:aspectjrt:1.8.14"
+}
+
+
+// 用于发布该插件，其他工程可通过配置引用
+apply plugin: 'maven-publish'
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.java
+                groupId = 'com.ain.ipc.aspectplugin'
+                artifactId = 'AspectJPlugin'
+                version = '1.0.0'
+            }
+        }
+
+        repositories {
+            maven {
+//                allowInsecureProtocol true
+                // 指定发布的位置为当前工程的repo目录下
+                url = uri('../repo')
+            }
+        }
+    }
+}

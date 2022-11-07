@@ -3,14 +3,19 @@
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
-        
+        // aspect-01.配置插件路径
+        maven {
+            url('repo')
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        // aspect-02.配置插件
+        classpath "com.ain.ipc.aspectplugin:AspectJPlugin:1.0.0"
+        classpath "org.aspectj:aspectjrt:1.8.14"
     }
 }
 repositories {
@@ -20,8 +25,10 @@ repositories {
 allprojects {
     repositories {
         google()
-        jcenter()
-        
+        // aspect-03.配置插件路径
+        maven {
+            url('repo')
+        }
     }
 }
 
